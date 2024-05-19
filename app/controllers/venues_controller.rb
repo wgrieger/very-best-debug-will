@@ -21,11 +21,13 @@ class VenuesController < ApplicationController
   def create
     venue = Venue.new
     venue.address = params.fetch("query_address")
-    venue.name = params.fetch("query_name")
+    @name = params.fetch("query_name")
+    venue.name = @name
     venue.neighborhood = params.fetch("query_neighborhood")
     venue.save
 
-   
+    @the_venue=Venue.where(:name=>@name).first
+    
     redirect_to("/venues/#{venue.name}")
   end
   
