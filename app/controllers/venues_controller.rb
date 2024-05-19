@@ -12,6 +12,7 @@ class VenuesController < ApplicationController
     matching_venues = Venue.where({ :id => venue_id })
     @the_venue = matching_venues.first
 
+    @comment_pull=Comment.where(:venue_id=>venue_id)
     
 
     render({ :template => "venue_templates/details" })
