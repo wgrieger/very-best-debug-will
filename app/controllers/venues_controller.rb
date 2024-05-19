@@ -28,7 +28,7 @@ class VenuesController < ApplicationController
 
     @the_venue=Venue.where(:name=>@name).first
     
-    redirect_to("/venues/#{venue.name}")
+    redirect_to("/venues/#{@the_venue}", {allow_other_host: true} )
   end
   
   def update
