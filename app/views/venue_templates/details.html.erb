@@ -57,7 +57,8 @@
   <% @comment_pull.each do |comment| %>
   <tr>
     <td>
-      <%= comment.author_id %>
+      <% @author= comment.author_id %>
+      <%= User.where(:id=> @author).first.username%>
     </td>
 
     <td>
